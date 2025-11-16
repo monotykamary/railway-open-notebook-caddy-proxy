@@ -20,36 +20,14 @@
 		format json # set access log format to json mode
 	}
 
+	# Main frontend
 	reverse_proxy /* {$WEB_ENDPOINT} {
 		header_up Host {upstream_hostport}
 	}
 
-	handle /god-mode/* {
-		reverse_proxy {$ADMIN_ENDPOINT} {
-			header_up Host {upstream_hostport}
-		}
-	}
-
+	# API endpoint
 	handle /api/* {
 		reverse_proxy {$API_ENDPOINT} {
-			header_up Host {upstream_hostport}
-		}
-	}
-
-	handle /auth/* {
-		reverse_proxy {$API_ENDPOINT} {
-			header_up Host {upstream_hostport}
-		}
-	}
-
-	handle /spaces/* {
-		reverse_proxy {$SPACES_ENDPOINT} {
-			header_up Host {upstream_hostport}
-		}
-	}
-
-	handle /{$BUCKET_NAME}/* {
-		reverse_proxy {$BUCKET_ENDPOINT} {
 			header_up Host {upstream_hostport}
 		}
 	}
