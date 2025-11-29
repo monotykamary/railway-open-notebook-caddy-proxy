@@ -29,6 +29,8 @@
 	handle /api/* {
 		reverse_proxy {$API_ENDPOINT} {
 			header_up Host {upstream_hostport}
+			lb_try_duration 30s
+			lb_try_interval 100ms
 		}
 	}
 }
