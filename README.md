@@ -12,4 +12,4 @@ The container reads these environment variables:
 - `WEB_ENDPOINT`
 - `API_ENDPOINT`
 
-This repository is a component of the complete template rather than a standalone Open Notebook deployment.
+The image is pinned to Caddy 2.11.4. This repository is a component of the complete template rather than a standalone Open Notebook deployment.
